@@ -1,7 +1,8 @@
 {
   "name": "diff-regular-files",
+  "publisher": "test",
   "displayName": "diff-regular-files",
-  "description": "provide command for comparing files",
+  "license": "Apache-2.0",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.96.0"
@@ -14,10 +15,21 @@
   "contributes": {
     "commands": [
       {
-        "command": "diff-regular-files.helloWorld",
-        "title": "Hello World"
+        "command": "diff-regular-files.applyBlock",
+        "icon": "$(arrow-left)",
+        "category": "diffEditor",
+        "title": "Apply Block"
       }
-    ]
+    ],
+    "menus": {
+      "diffEditor/gutter/hunk": [
+        {
+          "command": "diff-regular-files.applyBlock",
+          "group": "primary",
+          "when": "!diffEditorInlineMode"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
